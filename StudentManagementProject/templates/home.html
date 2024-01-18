@@ -1,0 +1,11 @@
+
+{% extends 'adminnavbar.html' %}
+{% load static %}
+{% block content %}
+
+<h2 id="heading" align="center">Welcome  {{ msg }} to  Home Page </h2>
+<link href="{% static 'css/home.css' %}" rel="stylesheet">
+<body  style="background-image:url('{% static 'images/student.jpg' %}');background-repeat:no-repeat;background-size:1100px 480px">
+
+</body>
+{% endblock %}

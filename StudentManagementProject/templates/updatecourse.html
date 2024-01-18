@@ -1,0 +1,32 @@
+{% extends 'adminnavbar.html' %}
+
+{% block content %}
+<body style="background-color:#22FF58;">
+<h2 align="center">Updates the course data</h2>
+<form method="post">
+    {% csrf_token %}
+    <table align="center">
+        <tr>
+            <td>Course Name:</td>
+            <td><input type="text" name="txtcourse" value="{{ data.course_name }}"/></td>
+        </tr>
+        <tr>
+            <td>Courseduration:</td>
+            <td><input type="text" name="txtduration" value="{{ data.course_duration }}"/> </td>
+
+        </tr>
+        <tr>
+            <td>CourseFees:</td>
+            <td>
+                <input type="number" name="num1" value="{{ data.course_fees }}"/>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2"> <input type="submit" name="btnsub" value="AddCourse"/></td>
+
+        </tr>
+    </table>
+</form>
+</body>
+{% endblock %}
+

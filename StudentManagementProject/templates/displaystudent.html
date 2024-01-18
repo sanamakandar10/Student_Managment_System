@@ -1,0 +1,38 @@
+{% extends 'adminnavbar.html' %}
+{% load static %}
+{% block content %}
+<body style="background-color:red;">
+<h2 align="center">student details</h2>
+<link href="{% static 'css/displaystudent.css' %}" rel="stylesheet">
+<table align="center" class="table" border="2">
+    <tr>
+        <th>Name</th>
+        <th>phono</th>
+        <th>email</th>
+        <th>city</th>
+        <th>course</th>
+        <th>totalfees</th>
+        <th>paidfees</th>
+        <th>pendingfees</th>
+        <th>UpdateData</th>
+        <th>DeleteData</th>
+    </tr>
+    {% for i in student %}
+    <tr>
+        <td>{{ i.stu_name }}</td>
+        <td>{{ i.stu_phno }}</td>
+        <td>{{ i.stu_email }}</td>
+        <td>{{ i.stu_city }}</td>
+        <td>{{ i.stu_course }}</td>
+
+        <td>{{ i.stu_course.course_fees }}</td>
+        <td>{{ i.paid_fees }}</td>
+        <td>{{ i.pending_fees }}</td>
+        <td align="center"><a href="{% url 'updatestudent' i.id %}"><img src="{% static 'images/edit.png' %}" width="20" height="20"></a> </td>
+        <td align="center"><a href="{% url 'deletestudent' i.id %}"><img src="{% static 'images/delete.png' %}" width="20" height="20"></a> </td>
+
+    </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

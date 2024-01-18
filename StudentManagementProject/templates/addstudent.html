@@ -1,0 +1,70 @@
+{% extends 'adminnavbar.html' %}
+{% load static %}
+{% block content %}
+<body style="background-color:green;">
+<h2 align="center">Add Student Data</h2>
+<link href="{% static 'css/addstudent.css' %}" rel="stylesheet">
+<form action="addstudent" method="post">
+  {% csrf_token %}
+  <div >
+  <table align="center" style="background-color:pink">
+    <tr>
+      <td>StudentName:</td>
+      <td><input type="text" name="txtname" style="color:black;
+background-color:pink"></td>
+    </tr>
+    <tr>
+      <td>StudentPhno:</td>
+      <td><input type="number" name="num1" style="color:black;
+background-color:pink"> </td>
+    </tr>
+    <tr>
+      <td>StudentEmail:</td>
+      <td><input type="email" name="email" style="color:black;
+background-color:pink"></td>
+    </tr>
+    <tr>
+      <td>StudentCity:</td>
+      <td>
+        <select name="ddlcity" style="color:black;
+background-color:pink">
+          <option>...select...</option>
+          {% for i in CityData %}
+          <option>{{ i.city_name }}</option>
+          {% endfor %}
+        </select>
+
+      </td>
+    </tr>
+    <tr>
+    <td>StudentCourse:</td>
+      <td>
+        <select name="ddlcourse" style="color:black;
+background-color:pink">
+          <option>...select...</option>
+          {% for i in CourseData %}
+          <option>{{ i.course_name }}</option>
+          {% endfor %}
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>CourseFees:</td>
+      <td><input type="number" name="num3" disabled ></td>
+
+    </tr>
+    <tr>
+      <td>PaidFees:</td>
+      <td><input type="number" name="num2"></td>
+    </tr>
+      </tr>
+      <td><input type="submit" name="btnsub" value="AddStudent"></td>
+    </tr>
+
+
+
+  </table>
+    </div>
+</form>
+</body>
+{% endblock %}
